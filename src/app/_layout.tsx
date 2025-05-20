@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import { StyleSheet } from "react-native";
 
 export default function RootLayout() {
   return (
@@ -9,15 +10,15 @@ export default function RootLayout() {
         />
         <Stack.Screen
             name="auth"
-            options={{ headerShown: false, title: "Auth" }}
+            options={{ headerShown: true, title: "Auth" }}
         />
         <Stack.Screen
             name="cartegories"
-            options={{ headerShown: false, title: "Categories" }}
+            options={{ headerShown: true, title: "Categories" }}
         />
         <Stack.Screen
             name="product/[id]"
-            options={{ headerShown: false, title: "Product" }}
+            options={{ headerShown: true, title: "Product" }}
         />
         <Stack.Screen
             name="cart"
@@ -27,3 +28,4 @@ export default function RootLayout() {
   
   );
 }
+const styles = StyleSheet.create({})

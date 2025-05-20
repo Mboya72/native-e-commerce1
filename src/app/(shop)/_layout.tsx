@@ -1,13 +1,14 @@
 import { Tabs } from "expo-router";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 
-export default function  TabsLayout() {
+export default function TabsLayout() {
   return (
-  <SafeAreaView>
-      <Tabs >
-      <Tabs.Screen name="index" options={ {headerShown:false,} } />
+    <SafeAreaView>
+         <Tabs >
+      <Tabs.Screen name="index" Options={{ headerShown: false }} />
       <Tabs.Screen name="orders" />
     </Tabs>
-  </SafeAreaView>
+    </SafeAreaView>
   );
 }
+const styles = StyleSheet.create({})
