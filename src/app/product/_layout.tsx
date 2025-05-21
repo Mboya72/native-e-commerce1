@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function CartegoriesLayout() {
+export default function ProductLayout() {
     return <Stack>
         <Stack.Screen
             name="[slug]"
