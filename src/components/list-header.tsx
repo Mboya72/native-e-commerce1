@@ -1,7 +1,8 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
 import { FontAwesome } from '@expo/vector-icons'
+import { CATEGORIES } from '../../assets/categories'
 
 const ListHeader = () => {
   return (
@@ -17,6 +18,7 @@ const ListHeader = () => {
             <Text style={styles.avatarText}>EmDesigns</Text>
           </View>
         </View>
+        <View style={styles.headerRight}>
         <Link href="/cart" asChild>
           <Pressable>
             {({ pressed }) => (
@@ -27,15 +29,43 @@ const ListHeader = () => {
                   color={pressed ? '#1BC464' : 'black'}
                 />
                 <View style={styles.badgeContainer}>
-                  <Text style={styles.badgeText}>3</Text>
+                  <Text style={styles.badgeText}>{3}</Text>
                   </View>
               </View>
             )}
           </Pressable>
         </Link>
+        <TouchableOpacity style={styles.signOutButton}>
+          <FontAwesome
+            name="sign-out"
+            size={24}
+            color="red"
+            style={styles.signOutButton}
+          />
+        </TouchableOpacity> 
+        </View>
     </View>
-    <View style={styles.heroContainer}></View>
+    <View style={styles.heroContainer}>
+      <Image
+      source={require('../../assets/images/hero.png')}
+      style={styles.heroImage}
+      />
+    </View>
     <View style={styles.categoriesContainer}>
+      <Text style={styles.sectionTitle}>Categories</Text>
+      <FlatList>
+        data ={CATEGORIES}
+        renderItem={({ item }) => (
+          <Link href={`/categories/${item.slug}`}>
+            <Pressable style={styles.category}>
+              <Image 
+              source={{ uri: item.imageUrl }}
+              style={styles.categoryImage}
+              />
+            </Pressable>
+          </Link>
+        )}
+      </FlatList>
       </View>
    </View>
   )
