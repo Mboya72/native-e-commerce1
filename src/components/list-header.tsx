@@ -53,20 +53,22 @@ const ListHeader = () => {
     </View>
     <View style={styles.categoriesContainer}>
       <Text style={styles.sectionTitle}>Categories</Text>
-      <FlatList>
-        data ={CATEGORIES}
+      <FlatList
+        data={CATEGORIES}
+        horizontal
+        keyExtractor={(item) => item.slug}
         renderItem={({ item }) => (
-          <Link href={`/categories/${item.slug}`}>
+          <Link asChild href={`/categories/${item.slug}` } >
             <Pressable style={styles.category}>
-              <Image 
-              source={{ uri: item.imageUrl }}
-              style={styles.categoryImage}
-              />
+              <Image source={{ uri: item.imageUrl }} style={styles.categoryImage} />
+              <Text style={styles.categoryText}>{item.slug}</Text>
             </Pressable>
           </Link>
         )}
-      </FlatList>
-      </View>
+        contentContainerStyle={{ gap: 4 }}
+        showsHorizontalScrollIndicator={false}
+      />
+    </View>
    </View>
   )
 }
